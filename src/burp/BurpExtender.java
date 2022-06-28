@@ -38,18 +38,15 @@ public class BurpExtender implements IBurpExtender, ITab, IHttpListener{
 
         callbacks.registerHttpListener(this);
         callbacks.addSuiteTab(this);
-
-
-
+        
         BurpExtenderTab.configcomp.telegramTokentxtbox.setText(callbacks.loadExtensionSetting("token_bot_telegram"));
         BurpExtenderTab.configcomp.chatIDtxtbox.setText(callbacks.loadExtensionSetting("chat_id_telegram"));
 
-        if (callbacks.loadExtensionSetting(BurpExtenderTab.configcomp.msgformattxtbox.getText().toString()) == ""){
+        if (callbacks.loadExtensionSetting("notification_message_telegram").equals("")){
             BurpExtenderTab.configcomp.msgformattxtbox.setText("*[Burp]* Matched the condition: *{{FOUND}}* in Response: `{{BODY}}`");
         } else {
             BurpExtenderTab.configcomp.msgformattxtbox.setText(callbacks.loadExtensionSetting("notification_message_telegram"));
         }
-
     }
 
 
@@ -81,7 +78,7 @@ public class BurpExtender implements IBurpExtender, ITab, IHttpListener{
             headers.add("Content-Length: " + data.length());
 
             byte[] builder = callbacks.getHelpers().buildHttpMessage(headers, data.getBytes());
-            byte[] responseBytes = callbacks.makeHttpRequest(url.getHost(), url.getPort(),true, builder,false);
+            byte[] responseBytes = callbacks.makeHttpRequest(url.getHost(), 443,true, builder,false);
 
         } catch (MalformedURLException e1) {
             stdout.println(e1);
