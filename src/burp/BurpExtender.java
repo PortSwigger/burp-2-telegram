@@ -63,12 +63,12 @@ public class BurpExtender implements IBurpExtender, ITab, IHttpListener{
 
     public void pushMessage(){
         PrintWriter stdout = new PrintWriter(callbacks.getStdout(), true);
-        this.token = BurpExtenderTab.configcomp.telegramTokentxtbox.getText().toString();
-        this.chat = BurpExtenderTab.configcomp.chatIDtxtbox.getText().toString();
+        this.token = BurpExtenderTab.configcomp.telegramTokentxtbox.getText().trim();
+        this.chat = BurpExtenderTab.configcomp.chatIDtxtbox.getText().trim();
 
         try {
-            URL url = new URL("https://api.telegram.org/bot" + token + "/sendMessage");
-            String data = "disable_web_page_preview=true&parse_mode=markdown&" + "chat_id=" + chat + "&text=" + callbacks.getHelpers().urlEncode(getCurrentPayload);
+            URL url = new URL("https://api.telegram.org/bot" + this.token + "/sendMessage");
+            String data = "disable_web_page_preview=true&parse_mode=markdown&" + "chat_id=" + this.chat + "&text=" + callbacks.getHelpers().urlEncode(getCurrentPayload);
 
             List<String> headers = new ArrayList<>();
             headers.add("POST " + url.getPath() + " HTTP/2");
