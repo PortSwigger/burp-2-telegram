@@ -4,6 +4,12 @@
  <p align="center">
 </p>
 
+## Burp to Telegram view
+![](media/example_burp2telegram.png)
+
+## Telegram chat view
+![](media/match_telegram.png)
+
 <hr>
 Push notifications to Telegram bot on BurpSuite response conditions.
 
@@ -21,7 +27,6 @@ When one of the above conditions met, then it pushes a notification to either a 
 * Customize your notification using {{FOUND}} which is your input condition and {{BODY}} which returns response body.
 * Match response body, HTTP headers, content length and HTTP status code.
 * Use the logical operators !, =, < and > in the content length field.
-* Support both Telegram webhook and custom HTTP listeners.
 * Match Burp proxy, Repeater, Intruder and Scanner/Spider.
 
 #### Build the Project
@@ -29,16 +34,18 @@ Use the following command to build the Jar file.
 > mvn clean install
 
 #### TODO:
-     - [ ] interact.sh to Telegram
-     - [ ] Match more options 
+    - [ ] (Regex/case sensitive/negative search) body response
+    - [ ] Match more options 
+    - [ ] interact.sh to Telegram
+    - [ ] Support both Telegram webhook and custom HTTP listeners.
 
 
 #### Bugs / Feedback / PRs
 Any comment, issue or pull request will be highly appreciated :)
 
 #### Author
-- vay3t - https://twitter.com/vay3t - https://gitlab.com/vay3t
+- Vay3t - https://twitter.com/vay3t - https://gitlab.com/vay3t
 - Gonzalo - https://twitter.com/pwner666 - https://gitlab.com/gvillegas
 
 #### Based by: 
-b1twis3 - https://github.com/PortSwigger/burp2slack
+b1twis3 - https://github.com/Leoid - https://github.com/PortSwigger/burp-2-slack

@@ -1,10 +1,6 @@
 package burp;
 
 import java.awt.*;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -68,7 +64,7 @@ public class BurpExtender implements IBurpExtender, ITab, IHttpListener{
 
         try {
             URL url = new URL("https://api.telegram.org/bot" + this.token + "/sendMessage");
-            String data = "disable_web_page_preview=true&parse_mode=markdown&" + "chat_id=" + this.chat + "&text=" + callbacks.getHelpers().urlEncode(getCurrentPayload);
+            String data = "disable_web_page_preview=true&parse_mode=markdown&" + "chat_id=" + this.chat + "&text=" + getCurrentPayload;
 
             List<String> headers = new ArrayList<>();
             headers.add("POST " + url.getPath() + " HTTP/2");
@@ -140,7 +136,7 @@ public class BurpExtender implements IBurpExtender, ITab, IHttpListener{
             };
 
 
-            timer.schedule(task, 1000, getPollSeconds);
+            timer.schedule(task, 1000, getPollSeconds * 1000L);
             VariableManager.setisStart(false);
         }
 
