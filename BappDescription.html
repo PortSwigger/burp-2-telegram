@@ -1,0 +1,22 @@
+<p>Description</p>
+<p>Burp2Telegram extension matches all BurpSuite traffics (Intruder, Repeater, Proxy and Scanner) based on "any" of the user input conditions such as,</p>
+<ul>
+	<li>If the input string exists in the response body</li>
+	<li>If the input string exists in the response headers</li>
+	<li>If the response content-length is (equal, greater than, less than or doesn't equal) the user input content length</li>
+	<li>If the input status code matches the response one</li>
+</ul>
+<p>When one of the above conditions met, then it pushes a notification to either a Telegram bot. The notification message is customized and can be edited/formatted by the user to get the met "condition/s" and/or the HTTP response body that includes the conditions.</p>
+
+<p>Main Features</p>
+<ul>
+	<li>Poll Notifications every X seconds.</li>
+	<li>Customize your notification using {{FOUND}} which is your input condition and {{BODY}} which returns response body.</li>
+	<li>Match response body, HTTP headers, content length and HTTP status code.</li>
+	<li>Use the logical operators !, =, &lt; and &gt; in the content length field.</li>
+	<li>Support both Telegram webhook and custom HTTP listeners.</li>
+	<li>Match Burp proxy, Repeater, Intruder and Scanner/Spider.</li>
+</ul>
+
+<br>
+<p>Based on Burp2Slack</p>
