@@ -3,10 +3,10 @@ ExtensionType: 1
 Name: Burp2Telegram
 RepoName: burp-2-telegram
 ScreenVersion: 1.0
-SerialVersion: 5
+SerialVersion: 6
 MinPlatformVersion: 0
 ProOnly: False
-Author: vay3t, Gonzalo
+Author: vay3t, Gonzalo Villegas
 ShortDescription: Push notifications to Telegram bot on BurpSuite response
 EntryPoint: target/Burp2Telegram-1.0.0-jar-with-dependencies.jar
 BuildCommand: mvn clean install
